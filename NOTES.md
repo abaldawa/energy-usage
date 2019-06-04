@@ -2,7 +2,7 @@ Candidate Name: Abhijit Baldawa
 
 Tasks: 2 and 3 (backend Node.js service)
 
-Time: [To be completed]
+Time: 8 hours (Time required for documentation and 23 unit tests)
 
 Notes:
-[Explain your approach and anything particular of note in your solution]
+Explained in README.me under points to note
