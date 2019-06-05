@@ -75,15 +75,18 @@ function getAllMetersReadings() {
  * @param {Object} meterReading - meter reading to insert
  * @returns {Promise<void>}
  */
-async function insertNewMeterReading( meterReading ) {
-    if( !meterReading || !meterReading.cumulative || !meterReading.readingDate || !meterReading.unit) {
+async function insertNewMeterReading( meterReading = {} ) {
+    const
+        {cumulative, readingDate, unit} = meterReading;
+
+    if( !cumulative || !readingDate || !unit) {
         throw new Error(`'meterReading' must have 'cumulative', 'readingDate' and 'unit' properties`);
     }
 
     return new Promise( (resolve, reject) => {
                    db.run(
                        'INSERT INTO meter_reads (cumulative, readingDate, unit) VALUES (?, ?, ?)',
-                       [meterReading.cumulative, meterReading.readingDate, meterReading.unit],
+                       [cumulative, readingDate, unit],
                        (err) => {
                            if( err ) {
                                reject(err);
